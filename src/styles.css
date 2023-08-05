@@ -2,7 +2,35 @@ body {
     background-color: #14161E;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4 {
+    font-weight: 200;
+    color: white;
+}
+
+hr {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: 200;
+    color: #bd4c5f !important;
+}
+
+.btn-outline-success {
+    border-color: #bd4c5f !important;;
+    color: #bd4c5f !important;;
+}
+
+.btn-outline-success:hover {
+    background-color: #272a36;
+    color: white !important;
+}
+
+/* h1,h2,h3,h4,h5 {
     font-weight: 200;
     color: white;
 }
@@ -32,4 +60,4 @@ hr{
 
 .block {
     display:block;
-}
+} */

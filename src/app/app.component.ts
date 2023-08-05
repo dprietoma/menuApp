@@ -8,9 +8,6 @@ import { MenusService } from './services/menus.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private menuService: MenusService) {
-      this.menuService.getMenu().subscribe(res => {
-          console.log(res);
-      });
+  constructor() {
   }
 }

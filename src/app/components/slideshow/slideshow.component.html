@@ -1,0 +1,25 @@
+<!-- Slider main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide" *ngFor="let item of categorias">
+        <div class="categoria-descripcion">
+            <img [src]="item.strCategoryThumb" alt="menu">
+            <h3>{{ item.strCategory }}</h3>
+            <p>{{ item.strCategoryDescription | slice:0:300 }}</p>
+          </div>
+      </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev" (click)="onSlidePrev()"></div>
+    <div class="swiper-button-next" (click)="onSlideNext()"></div>
+  
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+

@@ -1,1 +1,12 @@
-<p>home works!</p>
+<h1>Categorias</h1>
+
+<div class="row" *ngIf="categorias.categories.length > 0 ">
+    <div class="col">
+        <app-slideshow [categorias]="categorias.categories"></app-slideshow>
+    </div>
+</div>
+
+<h1 class="mt-5">Platos típicos de Canada</h1>
+<div class="mt-5">
+    <app-plato-grid  *ngIf="menu.meals.length > 0 " [menu]="menu.meals"></app-plato-grid>
+</div>

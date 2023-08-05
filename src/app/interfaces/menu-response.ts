@@ -1,9 +1,11 @@
-export interface MenuResponse {
+export class MenuResponse {
     meals: Meal[];
 }
 
-export interface Meal {
+export class Meal {
     strMeal:      string;
     strMealThumb: string;
     idMeal:       string;
+    strArea?:     string;
+    strCategory?: string;
 }
