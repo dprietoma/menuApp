@@ -18,7 +18,7 @@ export class MenusService {
   getMenu():Observable<MenuResponse>{
     return this.http.get<MenuResponse>(`${this.baseUrl}/filter.php?a=Canadian`)
   }
-
+ 
   getCategorias():Observable<CategoriaResponse> {
     return this.http.get<CategoriaResponse>(`${this.baseUrl}/categories.php`)
   }
@@ -30,4 +30,8 @@ export class MenusService {
   getDetalleId(id: string) {
     return this.http.get<MenuResponse>(`${this.baseUrl}/lookup.php?i=${id}`)
   }
-}
+
+  getFiltrarCategoria(txt: string) {
+    return this.http.get(`${this.baseUrl}/filter.php?c=${txt}`)
+  }
+} 

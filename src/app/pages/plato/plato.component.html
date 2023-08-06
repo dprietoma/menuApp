@@ -1,1 +1,15 @@
-<p>plato works!</p>
+<div class="row mt-5" *ngIf="plato">
+    <h1>{{ plato.strMeal}}</h1>
+    <hr>
+    <div class="col-md-6">
+           <img [src]="plato.strMealThumb" alt="">
+    </div>
+    <div class="col-md-6">
+        <p *ngIf="plato.strArea">Arear:  {{ plato.strArea }}</p>
+        <p *ngIf="plato.strCategory">Category:  {{ plato.strCategory }}</p>
+        <p *ngIf="plato.strTags">Tags:  {{ plato.strTags }}</p>
+        <p *ngIf="plato.strSource">Source:  <a [href]="plato.strSource">Web</a></p>
+    </div>
+    <h3>Instructions</h3>
+    <p>{{ plato.strInstructions}}</p>
+</div>

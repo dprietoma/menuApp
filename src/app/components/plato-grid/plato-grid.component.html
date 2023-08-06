@@ -1,30 +1,26 @@
 
-<div class="row">
-    <div class="col-sm-4 mt-4" *ngFor="let item of menu | paginate: { itemsPerPage: 5, currentPage: pageStart }">
-        <div class="card" style="width: 18rem;">
-            <img [src]="item.strMealThumb" class="img-fluid" alt="menu"
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col" *ngFor="let item of menu | paginate: { itemsPerPage: 5, currentPage: pageStart }; index as i">
+    <div class="card">
+      <img [src]="item.strMealThumb" class="img-fluid" alt="menu"
             (click)="onPlatoClick( item )">
-            <div class="card-body">
-              <h5 class="card-title">{{ item.strMeal }}</h5>
-              <h5 *ngIf="item.strArea">Area: {{ item.strArea }}</h5>
-              <h5 *ngIf="item.strCategory"class="card-title">Category: {{ item.strCategory }}</h5>
-              <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" [value]="5" [checked]="item.idMeal">
-                <label for="radio1">★</label>
-                <input id="radio2" type="radio" name="estrellas" [value]="4">
-                <label for="radio2">★</label>
-                <input id="radio3" type="radio" name="estrellas" [value]="3">
-                <label for="radio3">★</label>
-                <input id="radio4" type="radio" name="estrellas" [value]="2">
-                <label for="radio4">★</label>
-                <input id="radio5" type="radio" name="estrellas" [value]="1">
-                <label for="radio5">★</label>
-            </p>
-              <button type="button" class="btn btn-outline-primary">Me gusta</button>
-            </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.strMeal }}</h5>
+        <div class="row">
+          <div class="col">
+            <a  class="btn btn-outline-primary" (click)="incrementar(i)">Like {{ item.like }}</a>
+
           </div>
+          <div class="col">
+            <a  class="btn btn-outline-warning" (click)="actualizarContador(i)"><i class="bi bi-star">{{item.start }}</i></a>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+
 <br>
 <div class="position-relative mt-4">
     <div class="position-absolute top-50 start-50 translate-middle">
@@ -34,4 +30,3 @@
         </pagination-controls>
     </div>
 </div>
-

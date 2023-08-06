@@ -8,4 +8,6 @@ export class Meal {
     idMeal:       string;
     strArea?:     string;
     strCategory?: string;
+    like:         number;
+    start:        number;
 }

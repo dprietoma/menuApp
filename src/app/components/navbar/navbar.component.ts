@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CategoriaResponse } from 'src/app/interfaces/categoria-response';
+import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  public categorias: CategoriaResponse;
+  constructor(
+    private router: Router,
+    private menuService: MenusService){}
 
-  constructor(private router: Router){}
+  
+  ngOnInit(): void {
+    this.menuService.getCategorias()
+    .subscribe(res => {
+      this.categorias = res;
+    })
+  }
 
   buscarPlato(txt: string){
     txt = txt.trim();
@@ -17,4 +29,9 @@ export class NavbarComponent {
     } 
     this.router.navigate(['/buscar', txt]);
   }
+  
+  capturarCategoria(item) {
+   console.log(item.strCategory);
+  }
+
 }
