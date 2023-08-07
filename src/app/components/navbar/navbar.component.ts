@@ -16,22 +16,22 @@ export class NavbarComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.menuService.getCategorias()
+    this.menuService?.getCategorias()
     .subscribe(res => {
       this.categorias = res;
     })
   }
 
   buscarPlato(txt: string){
-    txt = txt.trim();
-    if (txt.length === 0) {
+    txt = txt?.trim();
+    if (txt?.length === 0) {
       return;
     } 
     this.router.navigate(['/buscar', txt]);
   }
   
   capturarCategoria(item) {
-   console.log(item.strCategory);
+    let categoria = item.strCategory
   }
 
 }

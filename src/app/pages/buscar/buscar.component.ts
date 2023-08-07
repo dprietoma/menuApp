@@ -8,15 +8,16 @@ import { MenusService } from 'src/app/services/menus.service';
   templateUrl: './buscar.component.html',
   styleUrls: ['./buscar.component.css']
 })
+
 export class BuscarComponent implements OnInit {
+  
   public menu: Meal[];
   public texto: string;
-   constructor(
+
+  constructor(
     private activated: ActivatedRoute,
     private menus: MenusService) {
-
    }
-
 
   ngOnInit(): void {
     this.activated.params.subscribe( params => {
@@ -33,6 +34,5 @@ export class BuscarComponent implements OnInit {
     });
     
   }
-
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Meal, MenuResponse } from 'src/app/interfaces/menu-response';
 import { MenusService } from 'src/app/services/menus.service';
 
 @Component({
@@ -16,17 +15,18 @@ export class PlatoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const { id } = this.activated.snapshot.params;
-    this.menus.getDetalleId(id).subscribe(plato => {
-      if (plato != null  || plato != undefined) {
-        this.getInfoPlato(plato);
-      }
-    });
+    if (this.activated?.snapshot?.params) {
+      const { id = null} = this.activated?.snapshot?.params;
+      this.menus.getDetalleId(id).subscribe(plato => {
+        if (plato != null  || plato != undefined) {
+          this.getInfoPlato(plato);
+        }
+      });
+    }
+      
   }
-
 
   getInfoPlato(plato: any){
     this.plato = plato.meals[0];
-    console.log(this.plato);
   }
 }

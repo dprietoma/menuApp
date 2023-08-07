@@ -8,6 +8,7 @@ import Swiper from 'swiper';
   styleUrls: ['./slideshow.component.css']
 })
 export class SlideshowComponent implements AfterViewInit {
+
   @Input() categorias: Category[];
 
   public swiper: Swiper;
@@ -15,21 +16,19 @@ export class SlideshowComponent implements AfterViewInit {
   constructor() {
     this.swiper = new Swiper('',{});
   }
+
   ngAfterViewInit(): void {
     this.swiper = new Swiper('.swiper', {
       loop: true,
     });
   }
 
-  
-
   onSlideNext() {
-    this.swiper.slideNext();
+    this.swiper?.slideNext();
   }
 
   onSlidePrev(){
-    this.swiper.slidePrev();
+    this.swiper?.slidePrev();
   }
-
 
 }

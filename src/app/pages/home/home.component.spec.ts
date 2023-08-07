@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { Category } from 'src/app/interfaces/categoria-response';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +10,8 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent]
+      declarations: [HomeComponent],
+      imports:[HttpClientModule]
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
@@ -18,4 +21,6 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

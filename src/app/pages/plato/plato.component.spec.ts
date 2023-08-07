@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlatoComponent } from './plato.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PlatoComponent', () => {
   let component: PlatoComponent;
@@ -8,7 +10,12 @@ describe('PlatoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PlatoComponent]
+      declarations: [PlatoComponent],
+      imports: [RouterModule,HttpClientModule],
+      providers: [
+                // Agregar el proveedor ActivatedRoute aquí
+                { provide: ActivatedRoute, useValue: {} },
+              ]
     });
     fixture = TestBed.createComponent(PlatoComponent);
     component = fixture.componentInstance;
